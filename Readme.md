@@ -23,3 +23,12 @@ Para correr varias replicas del mismo servicio:
 ````
 docker-compose up -d --scale webservice=2
 ````
+# Urls
+- Dashboard
+  http://localhost:8080/dashboard
+  
+- Whoami
+  http://whoami.docker.localhost/
+  
+- Webservice
+  http://webservice.docker.localhost/greeting

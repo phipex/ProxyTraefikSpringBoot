@@ -2,9 +2,9 @@
 
 ## Proxy de un servicio con traefik
 
-Configuracion basica de un proxy a un servicio que se espera replicar, para el ejerccicio se crea un servicio rest con spring-boot que retorna la ip actual del servicio
+Configuracion basica de un proxy a un servicio que se espera replicar, para el ejercicio se crea un servicio rest con spring-boot que retorna la ip actual del servicio
 
-## Caracteristicas
+## Características
 
 - Contiene dashboard en modo inseguro
 - Nivel de log en debug

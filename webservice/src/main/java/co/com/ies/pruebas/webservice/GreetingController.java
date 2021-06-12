@@ -18,16 +18,17 @@ public class GreetingController {
     public Greeting greeting(@RequestParam(value="name",
         defaultValue="World") String name) {
         String format = String.format(template, name);
+        String ip = "No found";
         // Local address
         try {
             String hostAddress = InetAddress.getLocalHost().getHostAddress() ;
             String hostName = InetAddress.getLocalHost().getHostName();
-            format = format + hostAddress + hostName;
+            ip = hostAddress;
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
 
         return new Greeting(counter.incrementAndGet(),
-                format);
+                format, ip);
     }
 }

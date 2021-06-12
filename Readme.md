@@ -32,3 +32,17 @@ docker-compose up -d --scale webservice=2
   
 - Webservice
   http://webservice.docker.localhost/greeting
+
+
+#  Pruebas de rendimiento y de carga
+
+La pruebas de carga se realizan mediante [Locust](https://docs.locust.io/en/stable/what-is-locust.html)
+
+## Por tiempo
+
+Correr por tiempo en especifico una prueba (-run-time 60s) con determinado numero de usuarios (-u 2) y a diferente tasa (-r 2)
+
+````
+locust -f locust/locustfile.py -H 'http://webservice.docker.localhost' --headless -u 2 -r 2 --run-time 60s
+````
+

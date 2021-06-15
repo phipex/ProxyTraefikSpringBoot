@@ -10,3 +10,7 @@ class WebsiteUser(FastHttpUser):
     @task
     def search_all(self):
         self.client.get("/greeting")
+
+    @task
+    def search_all2(self):
+        self.client.get("/greeting", name ="01 /greeting")

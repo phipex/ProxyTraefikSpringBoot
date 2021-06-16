@@ -51,5 +51,5 @@ locust -f locust/basic.py -H 'http://webservice.docker.localhost' --headless -u 
 Correr determinada prueba para indentificar cuanto se demora el sistema en recibir determinada cantidad de peticiones
 
 ````
-
+locust -f limit_reques.py -H 'http://webservice.docker.localhost'
 ````

@@ -17,8 +17,16 @@ public class GreetingController {
     @GetMapping("/greeting")
     public Greeting greeting(@RequestParam(value="name",
         defaultValue="World") String name) {
+        
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ie) {
+            Thread.currentThread().interrupt();
+        }    
+        
         String format = String.format(template, name);
         String ip = "No found";
+
         // Local address
         try {
             String hostAddress = InetAddress.getLocalHost().getHostAddress() ;

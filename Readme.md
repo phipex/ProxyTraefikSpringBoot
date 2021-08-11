@@ -34,11 +34,15 @@ docker-compose up -d --scale webservice=2
   http://webservice.docker.localhost/greeting
 
 
-#  Pruebas de rendimiento y de carga
+# Pruebas de rendimiento y de carga
+
+Para las pruebas de rendimiento tiene 2 opctiones, con gatling o locust, si se decide por una puede borrar la carpeta de la otra.
+
+##  Pruebas de rendimiento y de carga con locust
 
 La pruebas de carga se realizan mediante [Locust](https://docs.locust.io/en/stable/what-is-locust.html)
 
-## Rendimiento Por tiempo
+### Rendimiento Por tiempo
 
 Correr por tiempo en especifico (`-run-time 60s`) una prueba (`-f locust/basic.py -H 'http://webservice.docker.localhost'`) con determinado numero de usuarios (`-u 2`) y a diferente tasa (`-r 2`), esto para determinar cuantas peticiones puede soportar en un determinado tiempo. 
 
@@ -46,10 +50,27 @@ Correr por tiempo en especifico (`-run-time 60s`) una prueba (`-f locust/basic.p
 locust -f locust/basic.py -H 'http://webservice.docker.localhost' --headless -u 2 -r 2 --run-time 60s
 ````
 
-## Rendimiento por cantidad
+### Rendimiento por cantidad
 
 Correr determinada prueba para indentificar cuanto se demora el sistema en recibir determinada cantidad de peticiones
 
 ````
 locust -f limit_reques.py -H 'http://webservice.docker.localhost'
+
 ````
+
+## Pruebas de rendimiento y de carga con gatling
+
+[Gatling](https://gatling.io/docs/gatling/reference/current/general/simulation_setup/) tiene una sintaxis mas clara, en la documentacion se puede ver como configurar las mismas pruebas
+
+### El comando para correr las pruebas
+
+```
+mvn gatling:test
+```
+
+Nota: si tiene varias simulaciones debe expecificar cual con el comando
+
+```
+mvn gatling:test -Dgatling.simulationClass=scala.simulation.OtraSimulacion
+```
